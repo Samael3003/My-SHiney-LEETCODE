@@ -1,0 +1,41 @@
+ 
+DESIGNING AN ORDERED STREAM
+
+class OrderedStream:
+
+    def __init__(self, n):
+        self.stream = ['']*n
+        self.ptr = 0
+
+    def insert(self, idKey, value):
+        idKey -= 1
+        self.stream[idKey] = value
+        if self.ptr < idKey:
+            return []
+        else:
+            while self.ptr < len(self.stream) and self.stream[self.ptr] is not '':
+                self.ptr += 1
+            return self.stream[idKey:self.ptr]
+
+
+
+SINGLE NUMBER
+
+class Solution(object):
+    def singleNumber(self, nums):
+        res = 0
+        for i in nums:
+            res ^= i
+        return res
+
+
+
+MAJORITY ELEMENT
+
+class Solution(object):
+    def majorityElement(self, nums):
+        dup = list(dict.fromkeys(nums))
+        for i in dup:
+            tmp = nums.count(i)
+            if tmp > len(nums)/2:
+                return i

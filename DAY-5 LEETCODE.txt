@@ -1,0 +1,169 @@
+ 
+SUM OF ALL ODD LENGH SUBARRAYS
+
+class Solution(object):
+    def sumOddLengthSubarrays(self, arr):
+		res = 0
+
+		for i in range(len(arr)):
+
+			for j in range(i,len(arr)):
+
+				if (j+1-i) % 2 != 0:
+					res = res + sum(arr[i:j+1])
+
+		return res
+
+
+
+MINIMUM NUMBER OF MOVES T SEAT EVERYONE
+
+class Solution(object):
+    def minMovesToSeat(self, seats, students):
+
+        seats.sort()
+        students.sort()
+        res=0
+        for i in range(len(seats)):
+            res+=abs(seats[i]-students[i])
+        return res
+
+
+
+COUNT NUMBER OF PAIRS WITH ABSOLUTE DIFFERENCE K
+
+class Solution(object):
+    def countKDifference(self, nums, k):
+        count = 0
+
+        # Pick all elements one by one
+        for i in range(len(nums)):
+
+            # See if there is a pair of this picked element
+            for j in range(i+1, len(nums)) :
+
+                if abs(nums[i]-nums[j]) ==k:
+                    count += 1
+
+        return count
+
+
+
+REMOVE DUPLICATES FROM SORTED ARRAY
+
+class Solution(object):
+    def removeDuplicates(self, nums):
+        p = 0
+        q = 1
+        while q < len(nums):
+            if nums[q] != nums[p]:
+                nums[p+1] = nums[q]
+                p += 1
+            q += 1
+        return p + 1
+
+
+
+REMOVE ELEMENT
+
+class Solution(object):
+    def removeElement(self, nums, val):
+        # Counter for keeping track of elements other than val
+        count = 0
+        # Loop through all the elements of the array
+        for i in range(len(nums)):
+            if nums[i] != val:
+                # If the element is not val
+                nums[count] = nums[i]
+                count += 1
+        return count
+
+
+
+MOVE ZEROES
+
+class Solution(object):
+    def moveZeroes(self, nums):
+        l = 0 #lefft array
+        for r in range(len(nums)): #right array
+            if nums[r]:
+                nums[l], nums[r] = nums[r], nums[l]  # Swap the left and rights
+                l+=1
+        return nums
+
+
+
+CONTAINS DUPLICATES
+
+class Solution(object):
+    def containsDuplicate(self, nums):
+        a=set(nums)
+        if len(a)==len(nums):
+            return False
+        else:
+            return True
+
+
+
+INTERSECTION OF TWO ARRAYS
+
+class Solution(object):
+    def intersection(self, nums1, nums2):
+        set1 = set(nums1)
+        set2 = set(nums2)
+        result = []
+
+        for num in set1:
+            if num in set2:
+                result.append(num)
+
+        return result
+
+
+
+INTERSECTION OF TWO ARRAYS II
+
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        res = []
+        for x in nums1:
+            if x in nums2:
+                res.append(x)
+                nums2.remove(x)
+        return res
+
+
+
+MISSING NMBBER
+
+class Solution(object):
+    def missingNumber(self, nums):
+        res = len(nums)
+
+        for i in range(len(nums)):
+            res += (i- nums[i])
+
+        return res
+
+
+
+FIND THE DIFFERENCE OF TWO ARRAYS
+
+class Solution(object):
+    def findDifference(self, nums1, nums2):
+        s1 = set(nums1)
+        s2 = set(nums2)
+        a = list(s1-s2)
+        b = list(s2-s1)
+        return [a,b]
+
+
+
+INTERSECTION OF MULTIPLE ARRAYS
+
+class Solution(object):
+    def intersection(self, nums):
+        ans = {x for x in range(1001)}
+        for i in nums:
+            ans = ans & set(i)
+        return list(sorted(ans))

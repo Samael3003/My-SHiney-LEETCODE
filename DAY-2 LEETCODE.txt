@@ -1,0 +1,18 @@
+
+FINAL VALUE OF VARIABLE AFTER PERFORMING OPERATIONS
+
+class Solution(object):
+    def finalValueAfterOperations(self, operations):
+        res = 0
+        #initial X is 0
+        for i in operations:
+            if i == "X--" or i == "--X":
+                res = res - 1
+                #"--X" or "X--" is -1
+            else:
+                res += 1
+                #"++X" or "X++" is +1 and/or other cases
+        return res
+
+
+

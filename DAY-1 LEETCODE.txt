@@ -1,0 +1,52 @@
+ BUILD ARRAY FROM PERMUTATION
+
+ class Solution(object):
+    def buildArray(self, nums):
+        n = len(nums)
+
+        for i in range(0, len(nums)):
+            nums[i] = (n*(nums[nums[i]]%n))+nums[i];
+
+        for i in range(0, len(nums)):
+            nums[i] = int(nums[i]/n)
+
+        return nums
+
+
+
+RICHEST CUSTOMER WEALTH
+
+class Solution(object):
+    def maximumWealth(self, accounts):
+        wlt, bnk= 0, 0
+        for i in accounts:
+            for j in i:
+                bnk+=j
+            wlt=max(wlt,bnk)
+            bnk=0
+        return wlt
+
+
+
+CONCATENATION OF ARRAY
+
+class Solution:
+    def getConcatenation(self, nums):
+        return nums * 2
+
+
+
+RUNNING SUM OF 1D ARRAY
+
+class Solution(object):
+    def runningSum(self, nums):
+
+        ans=[]
+        ini=0
+        for i in nums:
+            ini+=i
+            ans.append(ini)
+        return ans
+
+
+

@@ -1,0 +1,82 @@
+ 
+MAXIMUM NUMBER OF WORDS FOUND IN SENTENCES
+
+class Solution(object):
+    def mostWordsFound(self, sentences):
+        ans=0
+        for wrd in sentences:
+            take=len(wrd.split(" "))
+            if take >ans:
+                ans=take
+        return ans
+
+
+
+NUMBER OF GOOD PAIRS
+
+class Solution:
+    def numIdenticalPairs(self, nums):
+        f={}
+        ans=0
+        for num in nums:
+            if not num in f:
+                f[num]=0
+            f[num]+=1
+
+        for num in f:
+            n=f[num]
+            ans+=(n*(n-1)//2)
+
+        return ans
+
+
+
+KIDS WITH THE GREATEST NUMBER OF CANDIES
+
+class Solution(object):
+    def kidsWithCandies(self, candies, extraCandies):
+        l=len(candies)
+        ans=[]
+        for i in range(l):
+            if candies[i]+extraCandies >= max(candies):
+                ans.append(True)
+            else:
+                ans.append(False)
+        return ans
+
+
+
+HOW MANY NUMBERS ARE SMALLER THAN CURRENT NUMBER
+
+class Solution(object):
+    def smallerNumbersThanCurrent(self, nums):
+        res = {}
+        for i, n in enumerate(sorted(nums)):
+            if n not in res:
+                res[n] = i
+
+        return [res[n] for n in nums]
+
+
+
+SHUFFLE STRING
+
+class Solution(object):
+    def restoreString(self, s, indices):
+        l=[0]*len(s)
+        for i in range(len(indices)):
+            l[indices[i]]=s[i]
+        return "".join(l)
+
+
+
+CREATE TARGET ARRAY IN THE GIVEN ORDER
+
+class Solution(object):
+    def createTargetArray(self, nums, index):
+        tar = []
+        i = 0
+        while(i < len(nums)):
+            tar.insert(index[i],nums[i])
+            i += 1
+        return tar
