@@ -1,4 +1,4 @@
- BUILD ARRAY FROM PERMUTATION
+ # BUILD ARRAY FROM PERMUTATION
 
  class Solution(object):
     def buildArray(self, nums):
